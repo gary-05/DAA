@@ -1,12 +1,18 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int linsearch(vector<int> v, int key)
+int binsearch(vector<int> v, int key)
 {
-    for (int i = 0; i < v.size(); i++)
+    int l = 0, h = v.size() - 1;
+    while (l <= h)
     {
-        if (v[i] == key)
-            return i;
+        int mid = (l + h) / 2;
+        if (v[mid] == key)
+            return mid;
+        else if (v[mid] > key)
+            h = mid - 1;
+        else
+            l = mid + 1;
     }
     return -1;
 }
@@ -26,5 +32,5 @@ int main()
     int key;
     cout << "Enter element to search:";
     cin >> key;
-    cout << "Index of " << key << " is " << linsearch(v, key);
+    cout << "Index of " << key << " is " << binsearch(v, key);
 }
