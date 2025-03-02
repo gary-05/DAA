@@ -8,7 +8,7 @@ int findcomp(vector<int> v, int key)
         if (v[i] == key)
             return i + 1;
     }
-    return v.size();
+    return -1;
 }
 int main()
 {
@@ -28,7 +28,7 @@ int main()
     cin >> key;
     int p = findcomp(v, key);
     if (p == -1)
-        cout << "Not present " << p;
+        cout << "Not present " << n;
     else
         cout << "Present " << p;
     return 0;
